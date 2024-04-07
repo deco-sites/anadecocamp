@@ -27,6 +27,7 @@ export interface Layout {
 }
 
 export interface Props {
+  section?: Section;
   /** @title Integration */
   page: ProductListingPage | null;
   layout?: Layout;
@@ -49,6 +50,7 @@ function Result({
   layout,
   cardLayout,
   startingPage = 0,
+  section,
   url: _url,
 }: Omit<Props, "page"> & {
   page: ProductListingPage;
@@ -70,6 +72,7 @@ function Result({
 
   return (
     <>
+      {section && <section.Component {...section.props} />}
       <div class="container px-4 sm:py-10">
         {(isFirstPage || !isPartial) && (
           <SearchControls

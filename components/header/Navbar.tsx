@@ -13,7 +13,7 @@ import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
-import { Buttons, Logo } from "../../components/header/Header.tsx";
+import { Buttons, Logo } from "../../components/header/Header.tsx"; 
 
 // Make it sure to render it on the server only. DO NOT render it on an island
 function Navbar(
@@ -27,7 +27,7 @@ function Navbar(
   },
 ) {
   const platform = usePlatform();
-
+ 
   // Mobile header
   if (device === "mobile") {
     return (
@@ -67,7 +67,7 @@ function Navbar(
 
   // Desktop header
   return (
-    <div class="hidden sm:grid sm:grid-cols-3 items-center border-b border-base-200 w-full px-6">
+    <div class="hidden sm:grid sm:grid-cols-3 items-center w-full px-6 py-2 border-b border-slate-200">
       <ul
         class={`flex gap-6 col-span-1 ${
           logoPosition === "left" ? "justify-center" : "justify-start"
@@ -96,6 +96,11 @@ function Navbar(
         )}
       </div>
       <div class="flex-none flex items-center justify-end gap-6 col-span-1">
+        <div class="flex gap-1 items-center">
+          <Icon id="TopoVotos" size={24} />
+          <span class="text-sm">(0)</span>
+        </div>
+
         {!buttons?.hideSearchButton && (
           <div class="flex items-center text-xs font-thin gap-1">
             <SearchButton />SEARCH
