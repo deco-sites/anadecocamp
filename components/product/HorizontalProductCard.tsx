@@ -6,7 +6,6 @@ import { useOffer } from "../../sdk/useOffer.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts"; 
-  
 
 interface Props {
   products: Product[] | null;
@@ -36,7 +35,7 @@ function HorizontalProductCard({
   } 
 
   return (
-    <div className="w-full container py-8 flex flex-col gap-6 lg:py-10">
+    <div className="w-full container py-8 flex flex-col gap-6 lg:py-10"> 
       <Header
         title={title || ""}
         description={description || ""}
