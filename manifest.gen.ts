@@ -10,7 +10,6 @@ import * as $$$3 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
 import * as $$$4 from "./loaders/todosOsVotos.ts";
-import * as $$$5 from "./loaders/votosPorProduto.ts";
 import * as $$$$$$$0 from "./matchers/utm.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Cards/IconCardsCarousel.tsx";
@@ -74,7 +73,6 @@ const manifest = {
     "deco-sites/anadecocamp/loaders/Layouts/ProductCard.tsx": $$$0,
     "deco-sites/anadecocamp/loaders/List/Sections.tsx": $$$1,
     "deco-sites/anadecocamp/loaders/todosOsVotos.ts": $$$4,
-    "deco-sites/anadecocamp/loaders/votosPorProduto.ts": $$$5,
   },
   "sections": {
     "deco-sites/anadecocamp/sections/Animation/Animation.tsx": $$$$$$0,
