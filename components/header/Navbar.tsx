@@ -15,9 +15,14 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { Buttons, Logo } from "../../components/header/Header.tsx"; 
 
+import { TodosOsVotos } from "deco-sites/anadecocamp/loaders/todosOsVotos.ts";
+ 
+
+
 // Make it sure to render it on the server only. DO NOT render it on an island
 function Navbar(
-  { items, searchbar, logo, buttons, logoPosition = "left", device }: {
+  { totalDeVotos = 0, items, searchbar, logo, buttons, logoPosition = "left", device }: {    
+    totalDeVotos: TodosOsVotos;
     items: SiteNavigationElement[];
     searchbar?: SearchbarProps;
     logo?: Logo;
@@ -98,7 +103,7 @@ function Navbar(
       <div class="flex-none flex items-center justify-end gap-6 col-span-1">
         <div class="flex gap-1 items-center">
           <Icon id="TopoVotos" size={24} />
-          <span class="text-sm">(0)</span>
+          <span class="text-sm">({totalDeVotos === null ? "0" : totalDeVotos})</span>
         </div>
 
         {!buttons?.hideSearchButton && (

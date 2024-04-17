@@ -9,6 +9,11 @@ import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
 
+import { TodosOsVotos } from "deco-sites/anadecocamp/loaders/todosOsVotos.ts";
+
+export interface TodosOsVotos {
+  total: number;
+}
 export interface Logo {
   src: ImageWidget;
   alt: string;
@@ -22,7 +27,9 @@ export interface Buttons {
   hideCartButton?: boolean;
 }
 
-export interface Props {
+export interface Props { 
+  totalDeVotos: TodosOsVotos;
+
   alerts?: string[];
 
   /** @title Search Bar */
@@ -43,6 +50,7 @@ export interface Props {
 }
 
 function Header({
+  totalDeVotos = 0,
   alerts,
   searchbar,
   navItems = [
@@ -92,6 +100,7 @@ function Header({
           <div class="bg-base-100 fixed w-full z-50">
             {alerts && alerts.length > 0 && <Alert alerts={alerts} />}
             <Navbar
+              totalDeVotos={totalDeVotos}
               device={device}
               items={items}
               searchbar={searchbar && { ...searchbar, platform }}

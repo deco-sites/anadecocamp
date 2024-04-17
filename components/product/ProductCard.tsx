@@ -10,6 +10,7 @@ import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
 import { relative } from "../../sdk/url.ts";
+import CounterClick from "../../islands/ClickVotoProd.tsx";
 
 export interface Layout {
   basics?: {
@@ -123,6 +124,9 @@ function ProductCard({
       `}
       data-deco="view-product"
     >
+    <div class="absolute bottom-1">
+      <CounterClick productid={productID}/>
+    </div>
       <SendEventOnClick
         id={id}
         event={{
