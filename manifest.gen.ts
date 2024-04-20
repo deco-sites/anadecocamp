@@ -5,11 +5,12 @@
 import * as $$$$$$$$$0 from "./actions/AddVoto.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
-import * as $$$2 from "./loaders/availableIcons.ts";
-import * as $$$3 from "./loaders/icons.ts";
+import * as $$$3 from "./loaders/availableIcons.ts";
+import * as $$$4 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
-import * as $$$4 from "./loaders/todosOsVotos.ts";
+import * as $$$5 from "./loaders/todosOsVotos.ts";
+import * as $$$2 from "./loaders/VotosPorProduto.ts";
 import * as $$$$$$$0 from "./matchers/utm.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Cards/IconCardsCarousel.tsx";
@@ -68,11 +69,12 @@ import * as $$$$$$53 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
-    "deco-sites/anadecocamp/loaders/availableIcons.ts": $$$2,
-    "deco-sites/anadecocamp/loaders/icons.ts": $$$3,
+    "deco-sites/anadecocamp/loaders/availableIcons.ts": $$$3,
+    "deco-sites/anadecocamp/loaders/icons.ts": $$$4,
     "deco-sites/anadecocamp/loaders/Layouts/ProductCard.tsx": $$$0,
     "deco-sites/anadecocamp/loaders/List/Sections.tsx": $$$1,
-    "deco-sites/anadecocamp/loaders/todosOsVotos.ts": $$$4,
+    "deco-sites/anadecocamp/loaders/todosOsVotos.ts": $$$5,
+    "deco-sites/anadecocamp/loaders/VotosPorProduto.ts": $$$2,
   },
   "sections": {
     "deco-sites/anadecocamp/sections/Animation/Animation.tsx": $$$$$$0,

@@ -61,7 +61,7 @@ export default function Features(
 ) {
   return (
     <section class="relative bg-white text-black py-20 max-w-screen">
-      <div class="mx-6 lg:container lg:mx-auto flex justify-center items-center flex-col gap-20">
+      <div class="lg:container lg:mx-auto flex justify-center items-center flex-col gap-8">
         {title && (
           <h2 class="font-medium text-[36px] lg:text-[72px] leading-[100%] text-center max-w-4xl z-10">
             {title}

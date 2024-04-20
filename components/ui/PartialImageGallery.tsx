@@ -1,7 +1,7 @@
 
 import Image from "apps/website/components/Image.tsx";
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
-import { ImageWidget } from "apps/admin/widgets.ts";
+import { ImageWidget } from "apps/admin/widgets.ts"; 
 
 export type imageGallery = {
   label: string;
@@ -19,10 +19,10 @@ export interface Props {
 export default function Section({ titulo,imagens, limite }: Props) {
   return (
     <div class="container py-8">  
-      <h2 class="text-2xl font-light leading-8 lg:leading-10 text-base-content lg:text-4xl text-center mb-4">{titulo}</h2>
+      <h2 class="text-xl font-semibold leading-8 lg:leading-10 text-base-content uppercase tracking-wide text-center lg:text-3xl mb-4">{titulo}</h2>
       <div class="flex flex-wrap max-w-[960px] mx-auto galeria-imagens">
         {imagens.map((image) => (
-          <div class="px-2 pb-4">
+          <div class="px-2 pb-4 w-full flex justify-center md:w-auto">
             <figure>
               <Image 
                 src={image.imagem}

@@ -58,7 +58,7 @@ interface Props {
 }
 
 const WIDTH = 200;
-const HEIGHT = 279;
+const HEIGHT = 200;
 
 function ProductCard({
   product,
@@ -105,7 +105,7 @@ function ProductCard({
     <a
       href={url && relative(url)}
       aria-label="view product"
-      class="btn btn-block"
+      class="btn btn-block bg-success hover:bg-success text-white uppercase rounded-md hover:opacity-90"
     >
       {l?.basics?.ctaText || "Ver produto"}
     </a>
@@ -124,7 +124,7 @@ function ProductCard({
       `}
       data-deco="view-product"
     >
-    <div class="absolute bottom-1">
+    <div class="absolute top-2 z-10 left-2 p-1 bg-slate-100 rounded-md w-fit">
       <CounterClick productid={productID}/>
     </div>
       <SendEventOnClick
@@ -313,7 +313,7 @@ function ProductCard({
                 >
                   {formatPrice(listPrice, offers?.priceCurrency)}
                 </div>
-                <div class="text-base-content lg:text-sm font-light">
+                <div class="text-base-content text-base lg:text-lg font-bold text-center">
                   {formatPrice(price, offers?.priceCurrency)}
                 </div>
               </div>
