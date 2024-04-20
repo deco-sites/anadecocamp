@@ -100,7 +100,7 @@ function Header({
           <div class="bg-base-100 fixed w-full z-50">
             {alerts && alerts.length > 0 && <Alert alerts={alerts} />}
             <Navbar
-              totalDeVotos={totalDeVotos}
+              // totalDeVotos={totalDeVotos}
               device={device}
               items={items}
               searchbar={searchbar && { ...searchbar, platform }}
