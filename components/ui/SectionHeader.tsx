@@ -26,9 +26,9 @@ function Header(props: Props) {
           >
             {props.title &&
               (
-                <h1
+                <h2
                   class={clx(
-                    "text-2xl font-light leading-8 lg:leading-10",
+                    "text-xl font-semibold leading-8 lg:leading-10 lg:text-2xl uppercase tracking-wide",
                     props.colorReverse
                       ? "text-primary-content"
                       : "text-base-content",
@@ -36,11 +36,11 @@ function Header(props: Props) {
                   )}
                 >
                   {props.title}
-                </h1>
+                </h2>
               )}
             {props.description &&
               (
-                <h2
+                <h3
                   class={clx(
                     "leading-6 lg:leading-8",
                     props.colorReverse
@@ -50,7 +50,7 @@ function Header(props: Props) {
                   )}
                 >
                   {props.description}
-                </h2>
+                </h3>
               )}
           </div>
         )

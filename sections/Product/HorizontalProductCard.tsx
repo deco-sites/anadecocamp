@@ -4,7 +4,7 @@ import Image from "apps/website/components/Image.tsx";
 export function LoadingFallback() {
     return ( 
         <div>
-            <div class="flex flex-col gap-2 text-center"><p class="text-2xl font-light leading-8 lg:leading-10 text-base-content lg:text-4xl">loading...</p><p class="leading-6 lg:leading-8 text-base-content lg:text-4xl">...</p></div>
+            <div class="flex flex-col gap-2 text-center"><p class="text-xl font-semibold leading-8 lg:leading-10 text-base-content lg:text-3xl uppercase tracking-wide">loading...</p> </div>
             <div class="container flex md:max-w-7xl bg-gray-200 p-4 my-8 rouded-lg "> 
                 <div class="w-5/12 md:w-3/12 skeleton animate-pulse h-72 mb-4"></div>
                 

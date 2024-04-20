@@ -9,10 +9,11 @@ import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
 import { relative } from "../../sdk/url.ts";
-import CounterClick from "../../islands/ClickVotoProd.tsx";
+import CounterClick from "../../islands/ClickVotoProd.tsx";  
 
 interface Props {
   product: Product;
+
   /** Preload card image */
   preload?: boolean;
 
@@ -23,6 +24,15 @@ interface Props {
   index?: number;
 
   platform?: Platform;
+
+  tamanhoDoContainer: "max-w-xl"
+   | "max-w-2xl"
+   | "max-w-3xl"
+   | "max-w-4xl"
+   | "max-w-5xl"
+   | "max-w-6xl"
+   | "max-w-7xl"
+   | "max-w-full"; 
 }
 
 const WIDTH = 390;
@@ -30,7 +40,8 @@ const HEIGHT = 305;
 
 
 function ProductHorizontal({
-  product,
+  tamanhoDoContainer,
+  product, 
   preload,
   itemListName,
   platform,
@@ -68,12 +79,12 @@ function ProductHorizontal({
     <a
       href={url && relative(url)}
       aria-label="view product"
-      class="btn p-1 btn-block bg-success text-white border-0 h-auto min-h-0 text-xs md:text-sm"
-    >
-      adicionar ao carrinho
-    </a>
+      class="btn p-2 btn-block bg-success text-white border-0 h-auto min-h-0 text-xs md:text-sm hover:opacity-90"
+    >COMPRAR</a>
   );
-
+  const fontName = tamanhoDoContainer == "max-w-xl" ? "lg:text-base md:mb-1" : "lg:text-lg";
+  const fontDesc = tamanhoDoContainer == "max-w-xl" ? "lg:text-sm" : "lg:text-lg";  
+  const fontPrice = tamanhoDoContainer == "max-w-xl" ? "lg:text-xl" : "lg:text-2xl";  
   return (
     <div
       id={id}
@@ -131,26 +142,30 @@ function ProductHorizontal({
       <div class="w-6/12 md:w-9/12 md:pt-2 flex flex-col md:flex-row pl-2 md:px-6 lg:gap-4"> 
         <div class="w-full md:w-9/12 flex flex-col gap-0 relative">
           <h2
-            class="text-left text-base leading-5 lg:text-2xl mb-2 font-semibold text-ellipsis overflow-hidden"
+            class={`text-left line-clamp-2 text-base font-semibold mb-2 ${fontName}`}
             dangerouslySetInnerHTML={{ __html: name ?? "" }}
           />
           <div
-            class="lg:text-lg text-xs text-left text-ellipsis overflow-hidden max-h-8 md:max-h-20 mb-2"
+            class={`text-xs line-clamp-2 text-left mb-2 ${fontDesc}`}
             dangerouslySetInnerHTML={{ __html: description ?? "" }}
           /> 
-          <div class="absolute bottom-1">
-            <CounterClick productid={productID}/>
-          </div>
-          
+          <div class="hidden md:block absolute bottom-1"> 
+            <CounterClick productid={productID}/> 
+          </div> 
         </div>
         <div class="w-full md:justify-between md:w-3/12 flex flex-col gap-2">
-          <div class="flex flex-col gap-0 justify-center">
-            <div class="line-through text-base-content text-xs md:text-base font-light text-left md:text-center -mb-1">
-              {formatPrice(listPrice, offers?.priceCurrency)}
+          <div class="flex justify-between">
+            <div class="sm:w-full flex flex-col gap-0 justify-center items-center">
+              <div class="line-through text-base-content text-xs md:text-base font-light text-left md:text-center -mb-1">
+                {formatPrice(listPrice, offers?.priceCurrency)}
+              </div>
+              <div class={`text-base-content text-base font-normal text-left md:text-center ${fontPrice}`}>
+                {formatPrice(price, offers?.priceCurrency)}
+              </div>
             </div>
-            <div class="text-base-content text-base lg:text-2xl font-normal text-left md:text-center">
-              {formatPrice(price, offers?.priceCurrency)}
-            </div>
+            <div class="block md:hidden"> 
+              <CounterClick productid={productID}/> 
+            </div> 
           </div>
           {cta}
         </div>

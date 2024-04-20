@@ -38,7 +38,7 @@ function Navbar(
     return (
       <div
         style={{ height: navbarHeight }}
-        class="lg:hidden grid grid-cols-3 justify-between items-center border-b border-base-200 w-full px-6 pb-6 gap-2"
+        class="lg:hidden grid grid-cols-3 justify-between items-center border-b border-slate-200 w-full px-6 pb-6 gap-2"
       >
         <MenuButton />
         {logo && (
