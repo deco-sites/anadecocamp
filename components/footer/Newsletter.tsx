@@ -50,15 +50,15 @@ function Newsletter(
         tiled && "lg:flex-row lg:w-full lg:justify-between",
       )}
     >
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
         {content?.title && (
-          <h4 class={tiled ? "text-2xl lg:text-3xl" : "text-lg"}>
+          <h4 class="text-lg">
             {content?.title}
           </h4>
         )}
         {content?.description && <div>{content?.description}</div>}
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
         <form
           class="form-control"
           onSubmit={handleSubmit}

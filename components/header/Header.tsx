@@ -7,13 +7,9 @@ import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import type { SectionProps } from "deco/types.ts";
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
-
-import { TodosOsVotos } from "deco-sites/anadecocamp/loaders/todosOsVotos.ts";
-
-export interface TodosOsVotos {
-  total: number;
-}
+import { headerHeight } from "./constants.ts";  
+ 
+ 
 export interface Logo {
   src: ImageWidget;
   alt: string;
@@ -27,9 +23,7 @@ export interface Buttons {
   hideCartButton?: boolean;
 }
 
-export interface Props { 
-  totalDeVotos: TodosOsVotos;
-
+export interface Props {   
   alerts?: string[];
 
   /** @title Search Bar */
@@ -49,8 +43,7 @@ export interface Props {
   buttons?: Buttons;
 }
 
-function Header({
-  totalDeVotos = 0,
+function Header({  
   alerts,
   searchbar,
   navItems = [
@@ -87,8 +80,7 @@ function Header({
   device,
 }: SectionProps<typeof loader>) {
   const platform = usePlatform();
-  const items = navItems ?? [];
-
+  const items = navItems ?? [];  
   return (
     <>
       <header style={{ height: headerHeight }}>
@@ -99,8 +91,7 @@ function Header({
         >
           <div class="bg-base-100 fixed w-full z-50">
             {alerts && alerts.length > 0 && <Alert alerts={alerts} />}
-            <Navbar
-              // totalDeVotos={totalDeVotos}
+            <Navbar  
               device={device}
               items={items}
               searchbar={searchbar && { ...searchbar, platform }}

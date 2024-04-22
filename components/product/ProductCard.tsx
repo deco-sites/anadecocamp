@@ -13,6 +13,15 @@ import { relative } from "../../sdk/url.ts";
 import CounterClick from "../../islands/ClickVotoProd.tsx";
 
 export interface Layout {
+  horizontalProduct?: boolean;
+  tamanhoDoContainerHorizontal?: "max-w-xl"
+   | "max-w-2xl"
+   | "max-w-3xl"
+   | "max-w-4xl"
+   | "max-w-5xl"
+   | "max-w-6xl"
+   | "max-w-7xl"
+   | "max-w-full"; 
   basics?: {
     contentAlignment?: "Left" | "Center";
     oldPriceSize?: "Small" | "Normal";
@@ -56,10 +65,7 @@ interface Props {
   layout?: Layout;
   platform?: Platform;
 }
-
-const WIDTH = 200;
-const HEIGHT = 200;
-
+ 
 function ProductCard({
   product,
   preload,
@@ -68,23 +74,24 @@ function ProductCard({
   platform,
   index,
 }: Props) {
-  const { url, productID, name, image: images, offers, isVariantOf } = product;
-  const id = `product-card-${productID}`;
-  const hasVariant = isVariantOf?.hasVariant ?? [];
-  const productGroupID = isVariantOf?.productGroupID;
-  const description = product.description || isVariantOf?.description;
-  const [front, back] = images ?? [];
-  const { listPrice, price, installments } = useOffer(offers);
-  const possibilities = useVariantPossibilities(hasVariant, product);
-  const variants = Object.entries(Object.values(possibilities)[0] ?? {});
+    const { url, productID, name, image: images, offers, isVariantOf } = product;
+    const id = `product-card-${productID}`;
+    const hasVariant = isVariantOf?.hasVariant ?? [];
+    const productGroupID = isVariantOf?.productGroupID;
+    const description = product.description || isVariantOf?.description;
+    const [front, back] = images ?? [];
+    const { listPrice, price, installments } = useOffer(offers);
+    const possibilities = useVariantPossibilities(hasVariant, product);
+    const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
-  const l = layout;
-  const align =
-    !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
-      ? "left"
-      : "center";
-  const relativeUrl = relative(url);
-  const skuSelector = variants.map(([value, link]) => {
+    const l = layout;
+    const horizontal = l?.horizontalProduct;
+    const align =
+      !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
+        ? "left"
+        : "center";
+    const relativeUrl = relative(url);
+    const skuSelector = variants.map(([value, link]) => {
     const relativeLink = relative(link);
     return (
       <li>
@@ -110,8 +117,111 @@ function ProductCard({
       {l?.basics?.ctaText || "Ver produto"}
     </a>
   );
+ 
+  
+  let WIDTH, HEIGHT,fontName = "lg:text-lg", fontDesc = "lg:text-lg", fontPrice = "lg:text-2xl";
 
+  if (horizontal) {
+    WIDTH = 390;
+    HEIGHT = 305;
+    if (l.tamanhoDoContainerHorizontal ) {
+      fontName = l.tamanhoDoContainerHorizontal == "max-w-xl" ? "lg:text-base md:mb-1" : "lg:text-lg";
+      fontDesc = l.tamanhoDoContainerHorizontal == "max-w-xl" ? "lg:text-sm" : "lg:text-lg";  
+      fontPrice = l.tamanhoDoContainerHorizontal == "max-w-xl" ? "lg:text-xl" : "lg:text-2xl";  
+    }
+  } else {
+    WIDTH = 200;
+    HEIGHT = 200;
+  }
   return (
+    <>
+    {horizontal ? (
+      <div
+        id={id}
+        data-product-id={productID}
+        class="flex flex-row card card-compact group text-center p-4 bg-gray-200"
+        data-deco="view-product"
+      > 
+        <SendEventOnClick
+          id={id}
+          event={{
+            name: "select_item" as const,
+            params: {
+              item_list_name: itemListName,
+              items: [
+                mapProductToAnalyticsItem({
+                  product,
+                  price,
+                  listPrice,
+                  index,
+                }),
+              ],
+            },
+          }}
+        />
+        <figure class="w-6/12 md:w-3/12 relative overflow-hidden">
+          {/* Wishlist button */}
+          <div class="absolute top-2 z-10 flex items-center right-2">
+            {platform === "vtex" && (
+              <WishlistButtonVtex
+                productGroupID={productGroupID}
+                productID={productID}
+              />
+            )} 
+          </div>
+          {/* Product Images */}
+          <a
+            href={url && relative(url)}
+            aria-label="view product"
+            class="grid grid-cols-1 grid-rows-1 w-full"
+          >
+            <Image
+              src={front.url!}
+              alt={front.alternateName}
+              width={300}
+              height={290}
+              class="bg-base-100 col-span-full row-span-full rounded w-full"
+              sizes="(max-width: 640px) 50vw, 20vw"
+              preload={preload}
+              loading={preload ? "eager" : "lazy"}
+              decoding="async"
+            /> 
+          </a>
+        </figure>
+        {/* Prices & Name */}
+        <div class="w-6/12 md:w-9/12 md:pt-2 flex flex-col md:flex-row pl-2 md:px-6 lg:gap-4"> 
+          <div class="w-full md:w-9/12 flex flex-col gap-0 relative">
+            <h2
+              class={`text-left line-clamp-2 text-base font-semibold mb-2 ${fontName}`}
+              dangerouslySetInnerHTML={{ __html: name ?? "" }}
+            />
+            <div
+              class={`text-xs line-clamp-2 text-left mb-2 ${fontDesc}`}
+              dangerouslySetInnerHTML={{ __html: description ?? "" }}
+            /> 
+            <div class="hidden md:block absolute bottom-1"> 
+              <CounterClick productid={productID}/> 
+            </div> 
+          </div>
+          <div class="w-full md:justify-between md:w-3/12 flex flex-col gap-2">
+            <div class="flex justify-between">
+              <div class="sm:w-full flex flex-col gap-0 justify-center items-center">
+                <div class="line-through text-base-content text-xs md:text-base font-light text-left md:text-center -mb-1">
+                  {formatPrice(listPrice, offers?.priceCurrency)}
+                </div>
+                <div class={`text-base-content text-base font-normal text-left md:text-center ${fontPrice}`}>
+                  {formatPrice(price, offers?.priceCurrency)}
+                </div>
+              </div>
+              <div class="block md:hidden"> 
+                <CounterClick productid={productID}/> 
+              </div> 
+            </div>
+            {cta}
+          </div>
+        </div>
+      </div>
+    ):(
     <div
       id={id}
       class={`card card-compact group w-full ${
@@ -124,6 +234,7 @@ function ProductCard({
       `}
       data-deco="view-product"
     >
+      <p>{horizontal}</p>
     <div class="absolute top-2 z-10 left-2 p-1 bg-slate-100 rounded-md w-fit">
       <CounterClick productid={productID}/>
     </div>
@@ -366,6 +477,8 @@ function ProductCard({
           )}
       </div>
     </div>
+    )}
+    </> 
   );
 }
 

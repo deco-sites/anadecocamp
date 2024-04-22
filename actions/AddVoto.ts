@@ -15,7 +15,8 @@ export default async function AddVoto(props: Props, _req: Request, _ctx: unknown
 
     if (response.ok) {
       const data = await response.json(); 
-      return data; 
+      const resp = "ok"; 
+      return resp; 
     } else {
       throw new Error('Erro ao registrar voto');
     }

@@ -223,8 +223,7 @@ function Footer({
   return (
     <footer
       class={clx(
-        "w-full flex flex-col pt-10 pb-2 md:pb-10 gap-10",
-        LAYOUT[layout?.backgroundColor ?? "Primary"],
+        "w-full flex flex-col pt-10 pb-2 md:pb-10 gap-10 bg-gray-200",
       )}
     >
       <div class="lg:container mx-6 lg:mx-auto">

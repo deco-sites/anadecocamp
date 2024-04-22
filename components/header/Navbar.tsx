@@ -1,34 +1,30 @@
 import type { Props as SearchbarProps } from "../../components/search/Searchbar.tsx";
 import Icon from "../../components/ui/Icon.tsx";
-import { MenuButton, SearchButton } from "../../islands/Header/Buttons.tsx";
-import CartButtonLinx from "../../islands/Header/Cart/linx.tsx";
-import CartButtonShopify from "../../islands/Header/Cart/shopify.tsx";
-import CartButtonVDNA from "../../islands/Header/Cart/vnda.tsx";
-import CartButtonVTEX from "../../islands/Header/Cart/vtex.tsx";
-import CartButtonWake from "../../islands/Header/Cart/wake.tsx";
-import CartButtonNuvemshop from "../../islands/Header/Cart/nuvemshop.tsx";
+import { MenuButton, SearchButton } from "../../islands/Header/Buttons.tsx"; 
+import CartButtonVTEX from "../../islands/Header/Cart/vtex.tsx"; 
 import Searchbar from "../../islands/Header/Searchbar.tsx";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
-import { Buttons, Logo } from "../../components/header/Header.tsx"; 
+import { Buttons, Logo } from "../../components/header/Header.tsx";  
+import TrazerTotalVotosDois from "../../islands/TrazerTotalVotosDois.tsx";  
 
-import { TodosOsVotos } from "deco-sites/anadecocamp/loaders/todosOsVotos.ts";
+
  
-
-
 // Make it sure to render it on the server only. DO NOT render it on an island
 function Navbar(
-  { totalDeVotos = 0, items, searchbar, logo, buttons, logoPosition = "left", device }: {    
-    totalDeVotos: TodosOsVotos;
+  { 
+    // totalDeVotos, 
+    items, searchbar, logo, buttons, logoPosition = "left", device}: {   
+    // totalDeVotos: number;
     items: SiteNavigationElement[];
     searchbar?: SearchbarProps;
     logo?: Logo;
     buttons?: Buttons;
     logoPosition?: "left" | "center";
-    device: "mobile" | "desktop" | "tablet";
+    device: "mobile" | "desktop" | "tablet"; 
   },
 ) {
   const platform = usePlatform();
@@ -59,20 +55,14 @@ function Navbar(
 
         <div class="flex justify-end gap-1">
           <SearchButton />
-          {platform === "vtex" && <CartButtonVTEX />}
-          {platform === "vnda" && <CartButtonVDNA />}
-          {platform === "wake" && <CartButtonWake />}
-          {platform === "linx" && <CartButtonLinx />}
-          {platform === "shopify" && <CartButtonShopify />}
-          {platform === "nuvemshop" && <CartButtonNuvemshop />}
+          {platform === "vtex" && <CartButtonVTEX />} 
         </div>
       </div>
     );
-  }
-
+  } 
   // Desktop header
   return (
-    <div class="hidden sm:grid sm:grid-cols-3 items-center w-full px-6 py-2 border-b border-slate-200">
+    <div class="hidden sm:grid sm:grid-cols-3 items-center w-full px-6 py-2 border-b border-slate-200"> 
       <ul
         class={`flex gap-6 col-span-1 ${
           logoPosition === "left" ? "justify-center" : "justify-start"
@@ -102,8 +92,8 @@ function Navbar(
       </div>
       <div class="flex-none flex items-center justify-end gap-6 col-span-1">
         <div class="flex gap-1 items-center">
-          <Icon id="TopoVotos" size={24} />
-          <span class="text-sm">({totalDeVotos === null ? "0" : totalDeVotos})</span>
+          <Icon id="TopoVotos" size={24} />  
+          <TrazerTotalVotosDois />
         </div>
 
         {!buttons?.hideSearchButton && (
@@ -142,12 +132,7 @@ function Navbar(
         )}
         {!buttons?.hideCartButton && (
           <div class="flex items-center text-xs font-thin">
-            {platform === "vtex" && <CartButtonVTEX />}
-            {platform === "vnda" && <CartButtonVDNA />}
-            {platform === "wake" && <CartButtonWake />}
-            {platform === "linx" && <CartButtonLinx />}
-            {platform === "shopify" && <CartButtonShopify />}
-            {platform === "nuvemshop" && <CartButtonNuvemshop />}
+            {platform === "vtex" && <CartButtonVTEX />} 
           </div>
         )}
       </div>

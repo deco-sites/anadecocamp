@@ -9,7 +9,16 @@ import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
 import { relative } from "../../sdk/url.ts";
-import CounterClick from "../../islands/ClickVotoProd.tsx";  
+import CounterClick from "../../islands/ClickVotoProd.tsx";   
+
+export type Platform =
+  | "vtex"
+  | "vnda"
+  | "shopify"
+  | "wake"
+  | "linx"
+  | "nuvemshop"
+  | "custom";
 
 interface Props {
   product: Product;
@@ -60,6 +69,7 @@ function ProductHorizontal({
   const relativeUrl = relative(url);
   const skuSelector = variants.map(([value, link]) => {
   const relativeLink = relative(link);
+  
     return (
       <li>
         <a href={relativeLink}>
@@ -79,7 +89,7 @@ function ProductHorizontal({
     <a
       href={url && relative(url)}
       aria-label="view product"
-      class="btn p-2 btn-block bg-success text-white border-0 h-auto min-h-0 text-xs md:text-sm hover:opacity-90"
+      class="btn p-2 btn-block bg-success hover:bg-success hover:opacity-90 text-white border-0 h-auto min-h-0 text-xs md:text-sm hover:opacity-90"
     >COMPRAR</a>
   );
   const fontName = tamanhoDoContainer == "max-w-xl" ? "lg:text-base md:mb-1" : "lg:text-lg";
@@ -91,7 +101,7 @@ function ProductHorizontal({
       data-product-id={productID}
       class="flex flex-row card card-compact group text-center p-4 bg-gray-200"
       data-deco="view-product"
-    >
+    > 
       <SendEventOnClick
         id={id}
         event={{

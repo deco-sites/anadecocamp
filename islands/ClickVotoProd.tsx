@@ -5,7 +5,6 @@ import Icon from "../components/ui/Icon.tsx";
 import { invoke } from "deco-sites/anadecocamp/runtime.ts";
 import { getProdVotos } from "deco-sites/anadecocamp/sdk/VotosPorProduto.ts";
 
-
 const REFRESH_TIMEOUT = 30 * 1000; // 30 segundos
 
 export default function CounterClick(productid){
@@ -17,34 +16,43 @@ export default function CounterClick(productid){
             productId: productid,
         }); 
         if (resultado === null) {
-        return;
+            return;
         } 
         votosprod.value = resultado;
-        count.value = resultado;
+        count.value = resultado; 
         setTimeout(fetchVotos, REFRESH_TIMEOUT);
     };
+
     useEffect(() => {
-        fetchVotos();
+        fetchVotos(); 
     }, [productid]);
- 
-    
+
     const count = useSignal(0); 
     const [icone, setIcon] = useState("Mood");
     const [color, setColor] = useState("text-gray-400");  
+
     const increment = async () => { 
         try { 
-            const response = await invoke["deco-sites/anadecocamp"].actions.AddVoto({productId: productid.productid}); 
-            // console.log("response-------------------------------");
-            // console.log(response);
-            
-            count.value++;
-            
-            if (color === "text-gray-400") {
-                setColor(color === "text-gray-400" ? "text-base" : "text-base");
+            const response = await invoke["deco-sites/anadecocamp"].actions.AddVoto({productId: productid.productid});  
+            if(response === "ok"){
+                count.value++; 
+                if (color === "text-gray-400") {
+                    setColor("text-base");
+                }
+                if (icone === "Mood" || count.value > 0) {
+                    setIcon("MoodCheck");
+                } 
+                 
+                const produtoClicado = localStorage.getItem(`produto_clicado`);
+                if (!produtoClicado) { 
+                    localStorage.setItem(`produto_clicado`, productid.productid);
+                } else { 
+                    if (!produtoClicado.includes(productid.productid)) { 
+                        localStorage.setItem(`produto_clicado`, `${produtoClicado},${productid.productid}`);
+                    }
+                }
             }
-            if (icone === "Mood" || count.value > 0) {
-                setIcon(icone === "Mood" ? "MoodCheck" : "Mood");
-            }  
+            
         } catch (error) { 
             console.error("Error");
         }

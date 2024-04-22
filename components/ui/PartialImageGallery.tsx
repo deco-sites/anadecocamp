@@ -37,7 +37,7 @@ export default function Section({ titulo,imagens, limite }: Props) {
         <div class="w-full">
           <button
           data-um={imagens.length} data-dois={limite}
-            class={imagens.length <= limite ? "hidden" : "btn mt-4 py-1 px-8 block bg-primary w-auto mx-auto text-white border-0 h-auto min-h-0 md:text-sm"}
+            class={imagens.length <= limite ? "hidden" : "btn mt-4 py-1 px-8 block bg-primary hover:bg-primary hover:opacity-90 w-auto mx-auto text-white border-0 h-auto min-h-0 md:text-sm"}
             {...usePartialSection({props: { imagens, limite: limite + 1 }, mode: "replace"})}
           >
             Ver Mais

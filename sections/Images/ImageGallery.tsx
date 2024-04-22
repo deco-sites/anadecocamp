@@ -149,8 +149,8 @@ function Banner(
           src={srcMobile}
         />
         <Source
-          width={640}
-          height={420}
+          width={632}
+          height={242}
           media="(min-width: 768px)"
           src={srcDesktop || srcMobile}
         />
