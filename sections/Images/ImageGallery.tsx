@@ -154,8 +154,7 @@ function Banner(
           media="(min-width: 768px)"
           src={srcDesktop || srcMobile}
         />
-        <img
-          width={640}
+        <img 
           class="w-full h-full object-cover"
           src={srcMobile}
           alt={alt}
@@ -188,7 +187,7 @@ export default function Gallery(props: Props) {
       : "sm:row-span-2";
 
   return (
-    <section class="container p-4 flex flex-col gap-8 lg:gap-10 lg:px-0">
+    <section class="container px-4 -mt-2 md:mt-0 md:p-4 flex flex-col gap-8 lg:gap-10 lg:px-0">
       <Header
         title={title}
         description={description}

@@ -5,8 +5,9 @@ export interface Props {
 }
 
 export default function UtmCampaign(props: Props, ctx: MatchContext) {
-  const campanha = ('utm_campaign=' + props.utm_campaign);
-  console.log(ctx.request.headers.get("referer"));
+  const campanha = ('utm_campaign=' + props.utm_campaign); 
+  console.log('ctx.request.headers');
+  console.log(ctx.request.headers);
   return ctx.request.headers.get("referer")?.includes(
     campanha,
   ) ?? false;
