@@ -1,7 +1,6 @@
 import { SendEventOnClick } from "../../components/Analytics.tsx";
 import Avatar from "../../components/ui/Avatar.tsx";
-import WishlistButtonVtex from "../../islands/WishlistButton/vtex.tsx";
-import WishlistButtonWake from "../../islands/WishlistButton/vtex.tsx";
+import WishlistButtonVtex from "../../islands/WishlistButton/vtex.tsx"; 
 import { formatPrice } from "../../sdk/format.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
@@ -21,10 +20,12 @@ export type Platform =
   | "custom";
 
 interface Props {
+  
   product: Product;
 
   /** Preload card image */
   preload?: boolean;
+
 
   /** @description used for analytics event */
   itemListName?: string;
@@ -33,6 +34,8 @@ interface Props {
   index?: number;
 
   platform?: Platform;
+  
+  animateImage?: boolean;
 
   tamanhoDoContainer: "max-w-xl"
    | "max-w-2xl"
@@ -51,6 +54,7 @@ const HEIGHT = 305;
 function ProductHorizontal({
   tamanhoDoContainer,
   product, 
+  animateImage,
   preload,
   itemListName,
   platform,
@@ -89,8 +93,7 @@ function ProductHorizontal({
     <a
       href={url && relative(url)}
       aria-label="view product"
-      class="btn p-2 btn-block bg-success hover:bg-success hover:opacity-90 text-white border-0 h-auto min-h-0 text-xs md:text-sm hover:opacity-90"
-    >COMPRAR</a>
+      class="btn p-2 btn-block bg-success hover:bg-success hover:opacity-90 text-white border-0 h-auto min-h-0 text-xs md:text-sm">COMPRAR</a>
   );
   const fontName = tamanhoDoContainer == "max-w-xl" ? "lg:text-base md:mb-1" : "lg:text-lg";
   const fontDesc = tamanhoDoContainer == "max-w-xl" ? "lg:text-sm" : "lg:text-lg";  
@@ -133,14 +136,16 @@ function ProductHorizontal({
         <a
           href={url && relative(url)}
           aria-label="view product"
-          class="grid grid-cols-1 grid-rows-1 w-full"
+          class="grid grid-cols-1 grid-rows-1 w-full overflow-hidden"
+          width={300}
+          height={290}
         >
           <Image
             src={front.url!}
             alt={front.alternateName}
             width={300}
             height={290}
-            class="bg-base-100 col-span-full row-span-full rounded w-full"
+            class={`bg-base-100 col-span-full row-span-full rounded w-full ${animateImage ? "hover:scale-110 transition-all" : ""} `}
             sizes="(max-width: 640px) 50vw, 20vw"
             preload={preload}
             loading={preload ? "eager" : "lazy"}

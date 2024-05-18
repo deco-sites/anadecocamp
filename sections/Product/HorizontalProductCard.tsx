@@ -40,6 +40,7 @@ export interface Layout {
 }
 
 interface Props {
+  animateImage?: boolean;
   products: Product[] | null;
   title?: string;
   fontSize?: "Small" | "Normal" | "Large";
@@ -105,6 +106,7 @@ export function ErrorFallback({error} : {error?:Error}) {
 
 function HorizontalProductCard({
   products,
+  animateImage,
   title,
   fontSize,
   description,
@@ -132,6 +134,7 @@ function HorizontalProductCard({
         {products?.map((product, index) => (
           <ProductHorizontal
             tamanhoDoContainer={tamanhoDoContainer}
+            animateImage={animateImage}
             key={index}
             product={product}
             itemListName={title}

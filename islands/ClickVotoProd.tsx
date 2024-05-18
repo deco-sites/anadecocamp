@@ -4,6 +4,8 @@ import { useEffect } from "preact/compat";
 import Icon from "../components/ui/Icon.tsx";
 import { invoke } from "deco-sites/anadecocamp/runtime.ts";
 import { getProdVotos } from "deco-sites/anadecocamp/sdk/VotosPorProduto.ts";
+import { SendEventOnView } from "deco-sites/anadecocamp/components/Analytics.tsx";
+import Toastify from 'https://esm.sh/toastify-js';
 
 const REFRESH_TIMEOUT = 30 * 1000; // 30 segundos
 
@@ -32,6 +34,14 @@ export default function CounterClick(productid){
     const [color, setColor] = useState("text-gray-400");  
 
     const increment = async () => { 
+        Toastify({
+            text: "Seu voto foi efetuado com sucesso!",
+            duration: 6000,  
+            close: true,
+            gravity: "bottom", 
+            position: "left",
+            stopOnFocus: true, 
+        }).showToast();
         try { 
             const response = await invoke["deco-sites/anadecocamp"].actions.AddVoto({productId: productid.productid});  
             if(response === "ok"){
@@ -64,6 +74,15 @@ export default function CounterClick(productid){
                 <Icon id={icone} size={24} /> 
                 <span class="ml-1 text-sm">({count})</span>
             </button> 
+            <SendEventOnView
+                id="vote-counter"
+                event={{
+                    name: "post_score",
+                    params: {
+                        score: count.value,
+                    },
+                }}
+            />
         </div>
     );
 }

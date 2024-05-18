@@ -33,41 +33,42 @@ import * as $$$$$$17 from "./sections/Content/Intro.tsx";
 import * as $$$$$$18 from "./sections/Content/Logos.tsx";
 import * as $$$$$$19 from "./sections/Content/Paises.tsx";
 import * as $$$$$$20 from "./sections/Content/Partners.tsx";
-import * as $$$$$$21 from "./sections/Content/RichText.tsx";
-import * as $$$$$$22 from "./sections/Content/Table.tsx";
-import * as $$$$$$23 from "./sections/Content/Testimonials.tsx";
-import * as $$$$$$24 from "./sections/Content/TextWithImage.tsx";
-import * as $$$$$$26 from "./sections/Content/trazerTotalDeVotos.tsx";
-import * as $$$$$$25 from "./sections/Content/Weather.tsx";
-import * as $$$$$$27 from "./sections/Footer/Footer.tsx";
-import * as $$$$$$28 from "./sections/Gallery.tsx";
-import * as $$$$$$29 from "./sections/Header/Header.tsx";
-import * as $$$$$$30 from "./sections/Images/BannerGrid.tsx";
-import * as $$$$$$31 from "./sections/Images/BannerSimples.tsx";
-import * as $$$$$$32 from "./sections/Images/Carousel.tsx";
-import * as $$$$$$33 from "./sections/Images/ImageGallery.tsx";
-import * as $$$$$$34 from "./sections/Images/PartialImageGallery.tsx";
-import * as $$$$$$35 from "./sections/Images/ShoppableBanner.tsx";
-import * as $$$$$$36 from "./sections/Links/LinkTree.tsx";
-import * as $$$$$$37 from "./sections/Links/Shortcuts.tsx";
-import * as $$$$$$38 from "./sections/Miscellaneous/CampaignTimer.tsx";
-import * as $$$$$$39 from "./sections/Miscellaneous/CookieConsent.tsx";
-import * as $$$$$$40 from "./sections/Miscellaneous/Slide.tsx";
-import * as $$$$$$41 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$42 from "./sections/Product/HorizontalProductCard.tsx";
-import * as $$$$$$43 from "./sections/Product/ImageGalleryFrontBack.tsx";
-import * as $$$$$$44 from "./sections/Product/NotFound.tsx";
-import * as $$$$$$45 from "./sections/Product/NotFoundChallenge.tsx";
-import * as $$$$$$46 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$47 from "./sections/Product/ProductGallery.tsx";
-import * as $$$$$$48 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$49 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$50 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$51 from "./sections/Product/ShelfWithImage.tsx";
-import * as $$$$$$52 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$53 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$54 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$55 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$21 from "./sections/Content/PromotionByDate.tsx";
+import * as $$$$$$22 from "./sections/Content/RichText.tsx";
+import * as $$$$$$23 from "./sections/Content/Table.tsx";
+import * as $$$$$$24 from "./sections/Content/Testimonials.tsx";
+import * as $$$$$$25 from "./sections/Content/TextWithImage.tsx";
+import * as $$$$$$27 from "./sections/Content/trazerTotalDeVotos.tsx";
+import * as $$$$$$26 from "./sections/Content/Weather.tsx";
+import * as $$$$$$28 from "./sections/Footer/Footer.tsx";
+import * as $$$$$$29 from "./sections/Gallery.tsx";
+import * as $$$$$$30 from "./sections/Header/Header.tsx";
+import * as $$$$$$31 from "./sections/Images/BannerGrid.tsx";
+import * as $$$$$$32 from "./sections/Images/BannerSimples.tsx";
+import * as $$$$$$33 from "./sections/Images/Carousel.tsx";
+import * as $$$$$$34 from "./sections/Images/ImageGallery.tsx";
+import * as $$$$$$35 from "./sections/Images/PartialImageGallery.tsx";
+import * as $$$$$$36 from "./sections/Images/ShoppableBanner.tsx";
+import * as $$$$$$37 from "./sections/Links/LinkTree.tsx";
+import * as $$$$$$38 from "./sections/Links/Shortcuts.tsx";
+import * as $$$$$$39 from "./sections/Miscellaneous/CampaignTimer.tsx";
+import * as $$$$$$40 from "./sections/Miscellaneous/CookieConsent.tsx";
+import * as $$$$$$41 from "./sections/Miscellaneous/Slide.tsx";
+import * as $$$$$$42 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$43 from "./sections/Product/HorizontalProductCard.tsx";
+import * as $$$$$$44 from "./sections/Product/ImageGalleryFrontBack.tsx";
+import * as $$$$$$45 from "./sections/Product/NotFound.tsx";
+import * as $$$$$$46 from "./sections/Product/NotFoundChallenge.tsx";
+import * as $$$$$$47 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$48 from "./sections/Product/ProductGallery.tsx";
+import * as $$$$$$49 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$50 from "./sections/Product/ProductShelfTabbed.tsx";
+import * as $$$$$$51 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$52 from "./sections/Product/ShelfWithImage.tsx";
+import * as $$$$$$53 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$54 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$55 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$56 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -102,43 +103,44 @@ const manifest = {
     "deco-sites/anadecocamp/sections/Content/Logos.tsx": $$$$$$18,
     "deco-sites/anadecocamp/sections/Content/Paises.tsx": $$$$$$19,
     "deco-sites/anadecocamp/sections/Content/Partners.tsx": $$$$$$20,
-    "deco-sites/anadecocamp/sections/Content/RichText.tsx": $$$$$$21,
-    "deco-sites/anadecocamp/sections/Content/Table.tsx": $$$$$$22,
-    "deco-sites/anadecocamp/sections/Content/Testimonials.tsx": $$$$$$23,
-    "deco-sites/anadecocamp/sections/Content/TextWithImage.tsx": $$$$$$24,
-    "deco-sites/anadecocamp/sections/Content/trazerTotalDeVotos.tsx": $$$$$$26,
-    "deco-sites/anadecocamp/sections/Content/Weather.tsx": $$$$$$25,
-    "deco-sites/anadecocamp/sections/Footer/Footer.tsx": $$$$$$27,
-    "deco-sites/anadecocamp/sections/Gallery.tsx": $$$$$$28,
-    "deco-sites/anadecocamp/sections/Header/Header.tsx": $$$$$$29,
-    "deco-sites/anadecocamp/sections/Images/BannerGrid.tsx": $$$$$$30,
-    "deco-sites/anadecocamp/sections/Images/BannerSimples.tsx": $$$$$$31,
-    "deco-sites/anadecocamp/sections/Images/Carousel.tsx": $$$$$$32,
-    "deco-sites/anadecocamp/sections/Images/ImageGallery.tsx": $$$$$$33,
-    "deco-sites/anadecocamp/sections/Images/PartialImageGallery.tsx": $$$$$$34,
-    "deco-sites/anadecocamp/sections/Images/ShoppableBanner.tsx": $$$$$$35,
-    "deco-sites/anadecocamp/sections/Links/LinkTree.tsx": $$$$$$36,
-    "deco-sites/anadecocamp/sections/Links/Shortcuts.tsx": $$$$$$37,
-    "deco-sites/anadecocamp/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$38,
-    "deco-sites/anadecocamp/sections/Miscellaneous/CookieConsent.tsx": $$$$$$39,
-    "deco-sites/anadecocamp/sections/Miscellaneous/Slide.tsx": $$$$$$40,
-    "deco-sites/anadecocamp/sections/Newsletter/Newsletter.tsx": $$$$$$41,
+    "deco-sites/anadecocamp/sections/Content/PromotionByDate.tsx": $$$$$$21,
+    "deco-sites/anadecocamp/sections/Content/RichText.tsx": $$$$$$22,
+    "deco-sites/anadecocamp/sections/Content/Table.tsx": $$$$$$23,
+    "deco-sites/anadecocamp/sections/Content/Testimonials.tsx": $$$$$$24,
+    "deco-sites/anadecocamp/sections/Content/TextWithImage.tsx": $$$$$$25,
+    "deco-sites/anadecocamp/sections/Content/trazerTotalDeVotos.tsx": $$$$$$27,
+    "deco-sites/anadecocamp/sections/Content/Weather.tsx": $$$$$$26,
+    "deco-sites/anadecocamp/sections/Footer/Footer.tsx": $$$$$$28,
+    "deco-sites/anadecocamp/sections/Gallery.tsx": $$$$$$29,
+    "deco-sites/anadecocamp/sections/Header/Header.tsx": $$$$$$30,
+    "deco-sites/anadecocamp/sections/Images/BannerGrid.tsx": $$$$$$31,
+    "deco-sites/anadecocamp/sections/Images/BannerSimples.tsx": $$$$$$32,
+    "deco-sites/anadecocamp/sections/Images/Carousel.tsx": $$$$$$33,
+    "deco-sites/anadecocamp/sections/Images/ImageGallery.tsx": $$$$$$34,
+    "deco-sites/anadecocamp/sections/Images/PartialImageGallery.tsx": $$$$$$35,
+    "deco-sites/anadecocamp/sections/Images/ShoppableBanner.tsx": $$$$$$36,
+    "deco-sites/anadecocamp/sections/Links/LinkTree.tsx": $$$$$$37,
+    "deco-sites/anadecocamp/sections/Links/Shortcuts.tsx": $$$$$$38,
+    "deco-sites/anadecocamp/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$39,
+    "deco-sites/anadecocamp/sections/Miscellaneous/CookieConsent.tsx": $$$$$$40,
+    "deco-sites/anadecocamp/sections/Miscellaneous/Slide.tsx": $$$$$$41,
+    "deco-sites/anadecocamp/sections/Newsletter/Newsletter.tsx": $$$$$$42,
     "deco-sites/anadecocamp/sections/Product/HorizontalProductCard.tsx":
-      $$$$$$42,
-    "deco-sites/anadecocamp/sections/Product/ImageGalleryFrontBack.tsx":
       $$$$$$43,
-    "deco-sites/anadecocamp/sections/Product/NotFound.tsx": $$$$$$44,
-    "deco-sites/anadecocamp/sections/Product/NotFoundChallenge.tsx": $$$$$$45,
-    "deco-sites/anadecocamp/sections/Product/ProductDetails.tsx": $$$$$$46,
-    "deco-sites/anadecocamp/sections/Product/ProductGallery.tsx": $$$$$$47,
-    "deco-sites/anadecocamp/sections/Product/ProductShelf.tsx": $$$$$$48,
-    "deco-sites/anadecocamp/sections/Product/ProductShelfTabbed.tsx": $$$$$$49,
-    "deco-sites/anadecocamp/sections/Product/SearchResult.tsx": $$$$$$50,
-    "deco-sites/anadecocamp/sections/Product/ShelfWithImage.tsx": $$$$$$51,
-    "deco-sites/anadecocamp/sections/Product/Wishlist.tsx": $$$$$$52,
-    "deco-sites/anadecocamp/sections/Social/InstagramPosts.tsx": $$$$$$53,
-    "deco-sites/anadecocamp/sections/Social/WhatsApp.tsx": $$$$$$54,
-    "deco-sites/anadecocamp/sections/Theme/Theme.tsx": $$$$$$55,
+    "deco-sites/anadecocamp/sections/Product/ImageGalleryFrontBack.tsx":
+      $$$$$$44,
+    "deco-sites/anadecocamp/sections/Product/NotFound.tsx": $$$$$$45,
+    "deco-sites/anadecocamp/sections/Product/NotFoundChallenge.tsx": $$$$$$46,
+    "deco-sites/anadecocamp/sections/Product/ProductDetails.tsx": $$$$$$47,
+    "deco-sites/anadecocamp/sections/Product/ProductGallery.tsx": $$$$$$48,
+    "deco-sites/anadecocamp/sections/Product/ProductShelf.tsx": $$$$$$49,
+    "deco-sites/anadecocamp/sections/Product/ProductShelfTabbed.tsx": $$$$$$50,
+    "deco-sites/anadecocamp/sections/Product/SearchResult.tsx": $$$$$$51,
+    "deco-sites/anadecocamp/sections/Product/ShelfWithImage.tsx": $$$$$$52,
+    "deco-sites/anadecocamp/sections/Product/Wishlist.tsx": $$$$$$53,
+    "deco-sites/anadecocamp/sections/Social/InstagramPosts.tsx": $$$$$$54,
+    "deco-sites/anadecocamp/sections/Social/WhatsApp.tsx": $$$$$$55,
+    "deco-sites/anadecocamp/sections/Theme/Theme.tsx": $$$$$$56,
   },
   "matchers": {
     "deco-sites/anadecocamp/matchers/utm.ts": $$$$$$$0,

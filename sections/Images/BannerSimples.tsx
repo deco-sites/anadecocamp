@@ -50,7 +50,7 @@ export default function FullBanner(
           <img
             src={Imagem.Desktop}
             alt={Imagem.Alt}
-            class="w-auto h-auto mx-auto"
+            class="w-full md:w-auto h-auto mx-auto"
             width={1200}
             decoding="async"
             loading="lazy"

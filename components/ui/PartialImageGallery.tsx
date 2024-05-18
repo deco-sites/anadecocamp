@@ -22,14 +22,20 @@ export default function Section({ titulo,imagens, limite }: Props) {
       <h2 class="text-xl font-semibold leading-8 lg:leading-10 text-base-content uppercase tracking-wide text-center lg:text-3xl mb-4">{titulo}</h2>
       <div class="flex flex-wrap max-w-[960px] mx-auto galeria-imagens">
         {imagens.map((image) => (
-          <div class="px-2 pb-4 w-full flex justify-center md:w-auto">
-            <figure>
+          <div 
+            class="px-2 pb-4 w-full flex justify-center md:w-auto">
+            <figure 
+              class="overflow-hidden"
+              width={300}
+              height={320}
+            >
               <Image 
                 src={image.imagem}
                 alt={image.alt} 
                 width={300}
                 height={320}
                 loading="lazy"
+                class="hover:scale-110 transition-all"
               />
             </figure>
           </div>
