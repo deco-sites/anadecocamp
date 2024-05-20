@@ -5,6 +5,7 @@
 import * as $$$$$$$$$0 from "./actions/AddVoto.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
+import * as $$$$$$$$0 from "./flags/multivariate/ProductCardFlagMulti.tsx";
 import * as $$$3 from "./loaders/availableIcons.ts";
 import * as $$$4 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
@@ -144,6 +145,10 @@ const manifest = {
   },
   "matchers": {
     "deco-sites/anadecocamp/matchers/utm.ts": $$$$$$$0,
+  },
+  "flags": {
+    "deco-sites/anadecocamp/flags/multivariate/ProductCardFlagMulti.tsx":
+      $$$$$$$$0,
   },
   "actions": {
     "deco-sites/anadecocamp/actions/AddVoto.ts": $$$$$$$$$0,

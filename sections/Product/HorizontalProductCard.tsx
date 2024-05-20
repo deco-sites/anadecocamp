@@ -4,9 +4,9 @@ import ProductHorizontal from "../../components/product/ProductHorizontal.tsx";
 import Header from "../../components/ui/SectionHeader.tsx";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
-import { usePlatform } from "../../sdk/usePlatform.tsx";
-import type { Product } from "apps/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts"; 
+import { usePlatform } from "../../sdk/usePlatform.tsx"; 
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";  
+import { ProductCardFlagMulti } from "../../flags/multivariate/ProductCardFlagMulti.tsx";
 
 
 export interface Layout {
@@ -41,7 +41,7 @@ export interface Layout {
 
 interface Props {
   animateImage?: boolean;
-  products: Product[] | null;
+  products: ProductCardFlagMulti;
   title?: string;
   fontSize?: "Small" | "Normal" | "Large";
   description?: string;
