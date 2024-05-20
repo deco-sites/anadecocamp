@@ -4,11 +4,8 @@ export interface Props {
   utm_campaign: string;
 }
 
-export default function UtmCampaign(props: Props, ctx: MatchContext) {
-  const campanha = ('utm_campaign=' + props.utm_campaign); 
-  console.log('ctx.request.headers');
-  console.log(ctx.request.headers);
-  return ctx.request.headers.get("referer")?.includes(
-    campanha,
-  ) ?? false;
-} 
+export default function UtmCampaign({ utm_campaign }: Props, { request }: MatchContext,) { 
+  const url = new URL(request.url); 
+  const param = url.searchParams.get("utm_campaign"); 
+  return utm_campaign === param;
+}; 
